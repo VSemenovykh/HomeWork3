@@ -53,19 +53,17 @@ public class UploadController {
             return "uploadStatus";
         }
 
-        String lastFirst = (user.getLastName() + " " + user.getFirstName());
+        String lastFirst = (user.getLastName() + " " + user.getFirstName());       
+        Path path = Paths.get( file.getOriginalFilename() + "-" + lastFirst.toString());
 
-        try {
-            //Get the file and save it somewhere
-            byte[] bytes = file.getBytes();
-            Path path = Paths.get( file.getOriginalFilename() + "-" + lastFirst.toString());
-            Files.write(path, bytes);
+        try(BufferedWriter out = new BufferedWriter(new FileWriter(path.getFileName().toString(), true))) {
+            
+            //Get the file and save it somewhere                      
+            Files.write(path,  file.getBytes());
 
-            //Write last name and first name to the file
-            BufferedWriter out = new BufferedWriter(new FileWriter(path.getFileName().toString(), true));
+            //Write last name and first name to the file          
             out.newLine();
-            out.write(new StringBuilder().append(lastFirst).toString());
-            out.close();
+            out.write(new StringBuilder().append(lastFirst).toString());            
 
             userFileService.setPath(path);
 
