@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Email form</title>
+    <meta http-equiv="Content-Type" content="text/html;  charset=UTF-8" />
+</head>
+<div>
+    <form action="/HomeWork3/src/main/resources/templates/emailSent.html" th:action="@{/emailForm}" th:Email="${email}" method="post">
+        <p>To email: <input type="text" style="width:200px;" th:field="*{email.toEmail}" /></p>
+        <p>Subject: <input type="text" style="width:200px;" th:field="*{email.subject}" /></p>
+        <p>Message: </p>
+        <p><textarea style="width:300px; height:150px;" th:field="*{email.message}"></textarea></p>
+        <p><input type="submit" value="To send" /> </p>
+        <p><a href="/">Back to main page</a></p>
+    </form>
+</div>
+</body>
+</html>

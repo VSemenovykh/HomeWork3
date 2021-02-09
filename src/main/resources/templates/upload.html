@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>upload</title>
+    <meta http-equiv="Content-Type" content="text/html;  charset=UTF-8" />
+</head>
+<body>
+<div align="center">
+    <h1>Upload additional information of user</h1>
+    <h3>Enter your first and last name:</h3>
+    <form action="/HomeWork3/src/main/resources/templates/uploadStatus.html" th:action="@{/upload}"  th:User="${user}" enctype="multipart/form-data" method="POST">
+        <p>Last name: <input type="text" th:field="*{user.lastName}" /></p>
+        <p>First name: <input type="text" th:field="*{user.firstName}" /></p>
+        <p><input type="file" name="file" /><br/><br/></p>
+        <p><input type="submit" value="display" /></p>
+        <p><a href="/">Back to main page</a></p>
+    </form>
+    </div>
+</body>
+</html>

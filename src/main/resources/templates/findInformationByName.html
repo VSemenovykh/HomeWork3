@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Find information user by name</title>
+    <meta http-equiv="Content-Type" content="text/html;  charset=UTF-8" />
+</head>
+<body>
+<form action="/HomeWork3/src/main/resources/templates/informationAboutUser.html" th:action="@{/findInformationByName}" th:User="${user}" method="POST">
+    <p>Last name: <input type="text" th:field="*{user.lastName}" /></p>
+    <p>First name: <input type="text" th:field="*{user.firstName}" /></p>
+    <p><input type="submit" value="Find" /> <input type="reset" value="Reset" /></p>
+    <p><a href="/registration">Back to registration</a></p>
+    <p><a href="/">Back to main page</a></p>
+</form>
+</body>
+
+</html>

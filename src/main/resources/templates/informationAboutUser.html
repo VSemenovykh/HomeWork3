@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Information about user</title>
+    <meta http-equiv="Content-Type" content="text/html;  charset=UTF-8" />
+</head>
+<body>
+<div align="center">
+     <p th:text="'Last name: ' + ${first}" />
+     <p th:text="'First name: ' + ${last}" />
+     <p th:text="'Middle name: ' + ${middle}" />
+     <p th:text="'Age: ' + ${age}" />
+     <p th:text="'E-mail: ' + ${email}" />
+     <p th:text="'Salary: ' + ${salary}" />
+     <p th:text="'WorkPlace: ' + ${workPlace}" />
+     <p>Найден</p>
+     <p><a href="/registration">Back to registration</a></p>
+     <p><a href="/">Back to main page</a></p>
+</div>
+<div align="center">
+    <form action="#" th:action="@{/findInformationByName}" method="post">
+        <p th:text="'Additional Information: '" />
+        <p th:text="'Creation Time: ' + ${creationTime}" />
+        <p th:text="'Last access time: ' + ${lastAccessTime}" />
+        <p th:text="'User-Agent: ' + ${userAgentStr}" />
+    </form>
+</div>
+</body>
+</html>
