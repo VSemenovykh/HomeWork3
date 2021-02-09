@@ -63,23 +63,12 @@ public class RegistrationController{
             String nameFile = "registration.txt";
 
             File file = new File(nameFile);
-            FileWriter fr = null;
-            BufferedWriter br = null;
 
             //Write to file
-            try{
-                fr = new FileWriter(file,true);
-                br = new BufferedWriter(fr);
+            try(BufferedWriter br = new BufferedWriter(new FileWriter(file,true))){          
                 br.write(outText.toString() + "\n");
             } catch (IOException e) {
                 e.printStackTrace();
-            }finally{
-                try {
-                    br.close();
-                    fr.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
             }
             return "result";
         }
