@@ -43,7 +43,7 @@ public class FindUserController {
     /**
      * This controller for processing request POST
      * The method is searching a user by first and last name.
-     * As well as displaying  information of user, time and browser name.
+     * As well as displaying  information about user, time and browser name.
      * @param user
      * @param model
      * @param request
