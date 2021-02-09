@@ -11,7 +11,7 @@ import org.springframework.boot.web.servlet.ServletComponentScan;
 @SpringBootApplication
 @ServletComponentScan
 public class SpringBootMyApplication {
-//    private int maxUploadSizeInMb = 10 * 1024 * 1024; // 10 MB
+    private int maxUploadSizeInMb = 10 * 1024 * 1024; // 10 MB
 
     public static void main(String[] args) {
         SpringApplication.run(SpringBootMyApplication.class, args);
