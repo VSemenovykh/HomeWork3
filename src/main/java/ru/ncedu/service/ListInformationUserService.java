@@ -48,8 +48,7 @@ public class ListInformationUserService {
         this.informationAboutUser = new HashMap<String, String>();
 
         exists(Paths.get("registration.txt"));
-        try(BufferedReader in = new BufferedReader(new FileReader(new File("registration.txt")));
-        ) {
+        try(BufferedReader in = new BufferedReader(new FileReader(new File("registration.txt")))) {
            String s;
            Pattern pattern = Pattern.compile(FIRSTLAST_PATTERN);
            while ((s = in.readLine()) != null) {
