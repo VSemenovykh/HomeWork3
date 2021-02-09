@@ -39,18 +39,14 @@ public class UserFileService {
      * Method to get field {@link #listInformation}
      * @return listInformation
      */
-    public List<String> getListInformation(){
+   public List<String> getListInformation(){
         this.listInformation = new ArrayList<String>();
-        try {
-            BufferedReader in = new BufferedReader(new FileReader( new File(getPath().getFileName().toString())));
-            try {
-                String s;
-                while ((s = in.readLine()) != null) {
-                    this.listInformation.add(new String(s.replace(",","")));
-                }
-            } finally {
-                in.close();
-            }
+        try(BufferedReader in = new BufferedReader(new FileReader( new File(getPath().getFileName().toString())));
+        ) {
+            String s;
+            while ((s = in.readLine()) != null) {
+                  this.listInformation.add(new String(s.replace(",","")));
+           }
         } catch(IOException e) {
             e.printStackTrace();
         }
