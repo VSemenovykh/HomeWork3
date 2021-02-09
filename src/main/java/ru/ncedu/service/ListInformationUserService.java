@@ -48,27 +48,23 @@ public class ListInformationUserService {
         this.informationAboutUser = new HashMap<String, String>();
 
         exists(Paths.get("registration.txt"));
-        try {
-            BufferedReader in = new BufferedReader(new FileReader(new File("registration.txt")));
-            try {
-                String s;
-                Pattern pattern = Pattern.compile(FIRSTLAST_PATTERN);
-                while ((s = in.readLine()) != null) {
-                    Matcher matcher = pattern.matcher(s.replace(",",""));
-                    while (matcher.find()){
+        try(BufferedReader in = new BufferedReader(new FileReader(new File("registration.txt")));
+        ) {
+           String s;
+           Pattern pattern = Pattern.compile(FIRSTLAST_PATTERN);
+           while ((s = in.readLine()) != null) {
+                  Matcher matcher = pattern.matcher(s.replace(",",""));
+                  while (matcher.find()){
                         this.listUser.add(matcher.group());
                         this.informationAboutUser.put(matcher.group(), s.replace(",",""));
-                    }
-                }
-            } finally {
-                in.close();
-            }
+                  }
+           }
         } catch(IOException e) {
             e.printStackTrace();
         }
         return listUser;
     }
-
+    
     /**
      * The method to get field {@link #informationAboutUser}
      * @return informationAboutUser
